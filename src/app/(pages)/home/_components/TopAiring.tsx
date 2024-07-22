@@ -2,6 +2,8 @@
 
 import Loading from "@/app/loading";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { createArrayFromDigit } from "@/lib/utils";
 import { useGetTopAiring } from "@/services/gogoanime/queries.tanstack";
 import Link from "next/link";
 import { useState } from "react";
@@ -9,7 +11,6 @@ import { useState } from "react";
 export default function TopAiring() {
     const [currentPage, setCurrentPage] = useState(1);
     const { data, status } = useGetTopAiring(currentPage);
-    console.log(data);
     return (
         <section className="container py-8">
             <div className="flex justify-between items-end pb-4">
@@ -34,7 +35,15 @@ export default function TopAiring() {
                     </Button>
                 </div>
             </div>
-            {status === "pending" && <Loading />}
+            {status === "pending" && (
+                <ul className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                    {createArrayFromDigit(10).map((e) => (
+                        <li key={e}>
+                            <Skeleton className="w-full aspect-[2/3]" />
+                        </li>
+                    ))}
+                </ul>
+            )}
             {status === "error" && "error"}
             {status === "success" && (
                 <ul className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">

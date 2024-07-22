@@ -26,3 +26,12 @@ export function formatDate(dateString: string, type?: string): string {
     };
     return new Date(dateString).toLocaleDateString(type, options);
 }
+export function createArrayFromDigit(digit:number) {
+    // Ensure digit is a positive integer
+    if (typeof digit !== 'number' || digit <= 0 || !Number.isInteger(digit)) {
+      throw new Error('Input must be a positive integer');
+    }
+  
+    return Array.from({ length: digit }, (_, index) => index + 1);
+  }
+  
