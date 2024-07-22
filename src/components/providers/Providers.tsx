@@ -1,3 +1,4 @@
+import EpisodeProvider from "./EpisodeState-provider";
 import TanstackQueryProvider from "./tanstack-query-provider";
 import { ThemeProvider } from "./theme-provider";
 
@@ -11,7 +12,9 @@ export default function Providers({ children }: ProvidersPropsType) {
                 enableSystem
                 disableTransitionOnChange={true}
             >
-                {children}
+                <EpisodeProvider>
+                    {children}
+                </EpisodeProvider>
             </ThemeProvider>
         </TanstackQueryProvider>
     );
