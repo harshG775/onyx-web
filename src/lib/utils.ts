@@ -26,12 +26,21 @@ export function formatDate(dateString: string, type?: string): string {
     };
     return new Date(dateString).toLocaleDateString(type, options);
 }
-export function createArrayFromDigit(digit:number) {
+export function createArrayFromDigit(digit: number) {
     // Ensure digit is a positive integer
-    if (typeof digit !== 'number' || digit <= 0 || !Number.isInteger(digit)) {
-      throw new Error('Input must be a positive integer');
+    if (typeof digit !== "number" || digit <= 0 || !Number.isInteger(digit)) {
+        throw new Error("Input must be a positive integer");
     }
-  
+
     return Array.from({ length: digit }, (_, index) => index + 1);
-  }
-  
+}
+export function toUrlString(input: string) {
+    // Replace spaces with hyphens, convert to lowercase, and remove unsafe characters
+    let formatted = input.replace(/\s/g, "-").toLowerCase();
+    // Remove unsafe characters (keep alphanumeric, hyphen, underscore)
+    formatted = formatted.replace(/[^\w-]+/g, "");
+    // Trim leading/trailing hyphens and replace consecutive hyphens with a single hyphen
+    formatted = formatted.replace(/^-+|-+$/g, "").replace(/-{2,}/g, "-");
+
+    return formatted;
+}
