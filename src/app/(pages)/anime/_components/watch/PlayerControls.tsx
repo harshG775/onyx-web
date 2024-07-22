@@ -7,8 +7,12 @@ import { useEffect } from "react";
 
 type PlayerControlsProps = {
     episodes: EpisodesInfoType[];
+    title: string;
 };
-export default function PlayerControls({ episodes }: PlayerControlsProps) {
+export default function PlayerControls({
+    episodes,
+    title,
+}: PlayerControlsProps) {
     const { currentEp, setCurrentEp } = useEpState();
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -21,7 +25,7 @@ export default function PlayerControls({ episodes }: PlayerControlsProps) {
     return (
         <section className="h-96 lg:h-full overflow-y-auto scrollbar-thin scrollbar-color">
             <div className="sticky top-0 bg-background border-b-2">
-                episode:{currentEp}
+                Episode:{currentEp} {title}
                 <ul>
                     {episodes.map((episode) => (
                         <li key={episode.id}>

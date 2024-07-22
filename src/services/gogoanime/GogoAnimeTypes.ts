@@ -84,7 +84,8 @@ export type StreamingLinksResponseType = {
 };
 
 /* Available Servers Response Type*/
-export type AvailableServersResponseType = {
+export type serverType = {
     name: string;
     url: string;
-}[];
+}
+export type AvailableServersResponseType = serverType[];
