@@ -57,3 +57,20 @@
         @apply bg-background text-foreground;
     }
 }
+
+@layer components {
+    /* scrollbar-width auto */
+    .scrollbar-thin {
+        --sb-thumb-color: var(--primary);
+        --sb-track-color: var(--background);
+        --sb-width-type: thin;
+    }
+    .scrollbar-color {
+        scrollbar-color: hsl(var(--sb-thumb-color)) hsl(var(--sb-track-color));
+    }
+    @supports (scrollbar-width: auto) {
+        .scrollbar-thin {
+            scrollbar-width: var(--sb-width-type);
+        }
+    }
+}
