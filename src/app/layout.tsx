@@ -4,6 +4,7 @@ import "./globals.css";
 import Providers from "@/components/providers/Providers";
 import { ModeToggle } from "@/components/ui/ModeToggle";
 
+import { Toaster } from "@/components/ui/toaster";
 const fontSans = FontSans({
     subsets: ["latin"],
     variable: "--font-sans",
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <Providers>
                     {children}
                     <ModeToggle className="fixed bottom-4 right-4" />
+                    <Toaster />
                 </Providers>
             </body>
         </html>

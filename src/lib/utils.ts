@@ -44,3 +44,27 @@ export function toUrlString(input: string) {
 
     return formatted;
 }
+
+export const getCurrentSeasonAndYear = () => {
+    const date = new Date();
+    const month = date.getMonth(); // 0-11 (January is 0, December is 11)
+    const year = date.getFullYear();
+
+    let season;
+
+    if (month === 11 || month <= 1) {
+        // December to February
+        season = "WINTER";
+    } else if (month >= 2 && month <= 4) {
+        // March to May
+        season = "SPRING";
+    } else if (month >= 5 && month <= 7) {
+        // June to August
+        season = "SUMMER";
+    } else {
+        // September to November
+        season = "FALL";
+    }
+
+    return { season, year };
+};

@@ -36,7 +36,7 @@ export default function TopAiring() {
                 </div>
             </div>
             {status === "pending" && (
-                <ul className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <ul className=" grid gap-4 grid-cols-[repeat(auto-fit,_minmax(170px,_1fr))]">
                     {createArrayFromDigit(10).map((e) => (
                         <li key={e}>
                             <Skeleton className="w-full aspect-[2/3]" />
@@ -46,7 +46,7 @@ export default function TopAiring() {
             )}
             {status === "error" && "error"}
             {status === "success" && (
-                <ul className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <ul className=" grid gap-4 grid-cols-[repeat(auto-fit,_minmax(170px,_1fr))]">
                     {data.results.map((anime) => (
                         <li
                             key={anime.id}

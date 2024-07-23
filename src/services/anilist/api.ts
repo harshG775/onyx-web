@@ -45,3 +45,37 @@ export async function getInfoById(id: string) {
     `);
     return data;
 }
+export async function TrendingReleasing(page: number, perPage: number) {
+    const data = await ALClient(`
+        {
+            Page(page: ${page}, perPage: ${perPage}) {
+                media(sort: TRENDING_DESC, type: ANIME, status: RELEASING, isAdult: false) {
+                    id
+                    episodes
+                    coverImage {
+                        large
+                        color
+                    }
+                    averageScore
+                    popularity
+                    title {
+                        romaji
+                        english
+                        userPreferred
+                        native
+                    }
+                    format
+                    genres
+                }
+                pageInfo {
+                    total
+                    perPage
+                    currentPage
+                    lastPage
+                    hasNextPage
+                }
+            }
+        }
+    `);
+    return data.data.data.Page;
+}
