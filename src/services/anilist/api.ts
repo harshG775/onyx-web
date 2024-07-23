@@ -25,6 +25,13 @@ export async function getInfoById(id: string) {
                     native
                     userPreferred
                 }
+                bannerImage
+                coverImage {
+                    extraLarge
+                    large
+                    medium
+                    color
+                }
                 genres
                 description
                 streamingEpisodes {
@@ -43,7 +50,7 @@ export async function getInfoById(id: string) {
             }
         }
     `);
-    return data;
+    return data.data.data.Media;
 }
 export async function TrendingReleasing(page: number, perPage: number) {
     const data = await ALClient(`
