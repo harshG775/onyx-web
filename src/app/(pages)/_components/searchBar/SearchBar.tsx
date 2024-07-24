@@ -36,15 +36,15 @@ export default function SearchBar() {
                     <Icon name="Search" className="w-8 h-8 p-1" />
                 </button>
             </form>
-            <div className="max-w-96 mx-auto ">
+            <div className="max-w-96 mx-auto relative">
                 {status === "error" && "error"}
                 {status === "success" && (
-                    <div className="grid gap-y-2 mt-2 odd:bg-secondary/20">
+                    <div className="grid gap-y-2 bg-secondary/90 absolute w-full">
                         {data?.results?.slice(0, 5)?.map((anime) => (
                             <Link
                                 href={`/anime/${anime.id}`}
                                 key={anime.id}
-                                className="flex gap-2 odd:bg-secondary/40 hover:bg-primary/20 p-1"
+                                className=" flex gap-2 bg-background/40 hover:bg-primary/20 p-1"
                             >
                                 <img
                                     src={anime.image}

@@ -74,3 +74,21 @@
         }
     }
 }
+
+.root-backdrop {
+    background: linear-gradient(
+            0deg,
+            hsl(var(--background) / 1) 0%,
+            hsl(var(--background) / 0) 50%,
+            hsl(var(--background) / 1) 100%
+        ),
+        url("/root-backdrop.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    display: block;
+    min-height: 600px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { Skeleton } from "@/components/ui/skeleton";
+import Icon from "@/lib/icons/lucide";
 import { createArrayFromDigit } from "@/lib/utils";
 import { useGetTrendingReleasing } from "@/services/anilist/queries.tanstack";
 import Link from "next/link";
@@ -15,14 +16,14 @@ export default function TrendingReleasing() {
             <SectionTitle
                 title={"Recently Updated"}
                 titleRight={
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 mb-2">
                         <Button
                             disabled={currentPage <= 1}
                             onClick={() => setCurrentPage((pre) => pre - 1)}
                             variant={"ghost"}
                             size={"sm"}
                         >
-                            prev
+                            <Icon name="ChevronLeft" />
                         </Button>
                         <Button
                             disabled={!data?.pageInfo?.hasNextPage}
@@ -30,7 +31,7 @@ export default function TrendingReleasing() {
                             variant={"ghost"}
                             size={"sm"}
                         >
-                            next
+                            <Icon name="ChevronRight" />
                         </Button>
                     </div>
                 }
@@ -59,11 +60,14 @@ export default function TrendingReleasing() {
                             <Link
                                 href={`anime/${anime.id}`}
                                 className="w-full rounded-md overflow-hidden group"
+                                style={{
+                                    backgroundColor: anime.coverImage.color,
+                                }}
                             >
                                 <img
                                     src={anime.coverImage.large}
                                     alt={anime.title.userPreferred}
-                                    className="w-full block scale-100 rotate-0 group-hover:scale-110 group-hover:rotate-2 transition-transform ease-out"
+                                    className="aspect-[2/3] w-full block scale-100 rotate-0 group-hover:scale-110 group-hover:rotate-2 transition-transform ease-out duration-300"
                                 />
                             </Link>
                             <Link
