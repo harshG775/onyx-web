@@ -34,18 +34,41 @@ export async function getInfoById(id: string) {
                 }
                 genres
                 description
-                streamingEpisodes {
-                    title
-                    thumbnail
-                    url
-                    site
-                }
+                idMal
+                type
+                duration
+                averageScore
+                status
                 nextAiringEpisode {
                     id
                     airingAt
                     timeUntilAiring
                     episode
                     mediaId
+                }
+
+                relations {
+                    edges {
+                        relationType(version: 2)
+                        node {
+                            id
+                            episodes
+                            coverImage {
+                                large
+                                color
+                            }
+                            averageScore
+                            popularity
+                            title {
+                                romaji
+                                english
+                                userPreferred
+                                native
+                            }
+                            format
+                            genres
+                        }
+                    }
                 }
             }
         }

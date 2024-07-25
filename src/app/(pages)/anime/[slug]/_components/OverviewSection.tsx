@@ -7,22 +7,10 @@ const infoTabsData = [
         name: "Overview",
     },
     {
-        name: "Watch",
-    },
-    {
         name: "Characters",
     },
     {
         name: "Staff",
-    },
-    {
-        name: "Reviews",
-    },
-    {
-        name: "Stats",
-    },
-    {
-        name: "Social",
     },
 ];
 
