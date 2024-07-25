@@ -17,7 +17,7 @@ export default function SectionTitle({
                 className
             )}
         >
-            <h2 className="text-2xl font-semibold">{title}</h2>
+            <h2 className="text-xl font-semibold">{title}</h2>
             {titleRight}
         </div>
     );
