@@ -27,7 +27,7 @@ export default function PlayerControls({
         <section className="h-96 lg:h-full overflow-y-auto scrollbar-thin scrollbar-color">
             <div className="sticky top-0 bg-background border-b-2 py-2">
                 <SectionTitle
-                    name="Playing"
+                    title="Playing"
                     titleRight={<>Episode:{currentEp}</>}
                 />
                 <p className="text-wrap text-foreground/60">{title}</p>
