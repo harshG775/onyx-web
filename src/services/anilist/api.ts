@@ -18,13 +18,16 @@ export const ALClient = (query: string) => {
 export async function getInfoById(id: string) {
     const data = await ALClient(`
         query Media {
-            Media(id: ${id}) {
+            Media(id: ${id}, type: ANIME) {
+                id
+                idMal
                 title {
                     romaji
                     english
                     native
                     userPreferred
                 }
+                description
                 bannerImage
                 coverImage {
                     extraLarge
@@ -32,43 +35,37 @@ export async function getInfoById(id: string) {
                     medium
                     color
                 }
-                genres
-                description
-                idMal
                 type
+                countryOfOrigin
+                season
+                genres
+                startDate {
+                    year
+                    month
+                    day
+                }
+                endDate {
+                    year
+                    month
+                    day
+                }
+                status
                 duration
                 averageScore
-                status
+                episodes
+                studios(isMain: true) {
+                    edges {
+                        node {
+                            name
+                        }
+                    }
+                }
                 nextAiringEpisode {
                     id
                     airingAt
                     timeUntilAiring
                     episode
                     mediaId
-                }
-
-                relations {
-                    edges {
-                        relationType(version: 2)
-                        node {
-                            id
-                            episodes
-                            coverImage {
-                                large
-                                color
-                            }
-                            averageScore
-                            popularity
-                            title {
-                                romaji
-                                english
-                                userPreferred
-                                native
-                            }
-                            format
-                            genres
-                        }
-                    }
                 }
             }
         }

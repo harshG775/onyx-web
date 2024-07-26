@@ -14,7 +14,6 @@ export default function AnimeInfoPage() {
         console.log(error);
         return "error";
     }
-    console.log(data);
     return (
         <main className="relative">
             <AnimeInfo Media={{ ...data, id: slug }} />

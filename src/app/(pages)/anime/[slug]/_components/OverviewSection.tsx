@@ -9,14 +9,11 @@ const infoTabsData = [
     {
         name: "Characters",
     },
-    {
-        name: "Staff",
-    },
 ];
 
 export default function OverviewSection() {
     return (
-        <Tabs defaultValue={infoTabsData[0].name} className="container mt-10">
+        <Tabs defaultValue={infoTabsData[0].name} className="sm:container mt-10 px-2">
             <TabsList>
                 {infoTabsData.map((tab, i) => (
                     <TabsTrigger value={tab.name} key={tab.name + i}>
