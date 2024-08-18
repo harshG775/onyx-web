@@ -1,5 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { getInfoById, TrendingReleasing } from "./api";
+import { getInfoById, getSearch, TrendingReleasing } from "./api";
+
+export const useSearch = (
+    debounce: string,
+    query: string,
+    page: number,
+    perPage = 20
+) => {
+    return useQuery({
+        queryKey: ["query", debounce, page, perPage],
+        queryFn: () => getSearch(query, page, perPage),
+    });
+};
 
 export const useGetInfo = (id: string) => {
     return useQuery({

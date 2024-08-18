@@ -15,6 +15,29 @@ export const ALClient = (query: string) => {
     });
 };
 
+export async function getSearch(query: string, page: number, perPage: number) {
+    const graphqlQuery = `
+        query Page {
+            Page(page: ${page}, perPage: ${perPage}) {
+                media(type: ANIME, search: "${query}") {
+                    id
+                    title {
+                        romaji
+                        english
+                        native
+                        userPreferred
+                    }
+                    description
+                    coverImage {
+                        medium
+                    }
+                }
+            }
+        }
+    `;
+    const { data } = await ALClient(graphqlQuery);
+    return data;
+}
 export async function getInfoById(id: string) {
     const data = await ALClient(`
         query Media {

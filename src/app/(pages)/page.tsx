@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SearchBar from "./_components/searchBar/SearchBar";
+import SearchBar from "@/components/partials/searchBar/SearchBar";
 import { Button } from "@/components/ui/button";
 import Icon from "@/lib/icons/lucide";
 const rootPageNavLinks = [
