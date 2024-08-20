@@ -71,11 +71,11 @@ export default function PlayerControls({
                                         } `}
                                 >
                                     {MALData?.recap ? (
-                                        <span className="bg-blue-500 text-white min-w-8 h-5">
+                                        <span className="bg-purple-700 text-white min-w-8 h-5">
                                             {epNumb}
                                         </span>
                                     ) : MALData?.filler ? (
-                                        <span className="bg-yellow-700 text-white min-w-8 h-5">
+                                        <span className="bg-yellow-600 text-white min-w-8 h-5">
                                             {epNumb}
                                         </span>
                                     ) : (

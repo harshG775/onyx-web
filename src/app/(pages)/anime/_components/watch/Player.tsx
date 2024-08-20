@@ -23,7 +23,11 @@ export default function Player({ episodes }: PlayerControlsProps) {
     }, [data]);
     return (
         <header className="bg-secondary/50 px-2 rounded-md">
-            {status === "pending" && <Loading />}
+            {status === "pending" && (
+                <div className="aspect-video w-full">
+                    <Loading />
+                </div>
+            )}
             {status === "error" && "error"}
             {status === "success" && (
                 <>
