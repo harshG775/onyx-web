@@ -18,7 +18,7 @@ export default async function WatchPage({ params }: InfoPageProps) {
         return (
             <main className="space-y-10 py-2">
                 <div className="container py-2 grid gap-y-10 gap-x-2 lg:grid-cols-[1fr_300px] lg:aspect-[21/9] shadow-md">
-                    <Player episodes={data.episodes} />
+                    {/* <Player episodes={data.episodes} /> */}
                     <PlayerControls
                         episodes={data.episodes}
                         title={data.title}

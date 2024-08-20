@@ -20,7 +20,6 @@ export default function SearchBar() {
         e.preventDefault();
         router.push(`/search?query=${queryInput}`);
     };
-    console.log(data?.data?.Page?.media);
     return (
         <div className="relative">
             <form className=" max-w-96 mx-auto" onSubmit={handleSearch}>
