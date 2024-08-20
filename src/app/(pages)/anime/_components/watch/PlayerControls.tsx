@@ -70,11 +70,11 @@ export default function PlayerControls({
                                                 : "text-secondary-foreground bg-secondary/50 hover:bg-primary/50 "
                                         } `}
                                 >
-                                    {MALData.recap ? (
-                                        <span className="bg-green-700 text-white min-w-8 h-5">
+                                    {MALData?.recap ? (
+                                        <span className="bg-blue-500 text-white min-w-8 h-5">
                                             {epNumb}
                                         </span>
-                                    ) : MALData.filler ? (
+                                    ) : MALData?.filler ? (
                                         <span className="bg-yellow-700 text-white min-w-8 h-5">
                                             {epNumb}
                                         </span>
